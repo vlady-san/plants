@@ -32,7 +32,7 @@ class MainFragment : Fragment(), LoadFragments {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val fragmentAdapter = MyPagerAdapter(requireActivity().supportFragmentManager, this)
+        val fragmentAdapter = MyPagerAdapter(childFragmentManager, this)
         viewpager.adapter = fragmentAdapter
         tabs.setupWithViewPager(viewpager)
 

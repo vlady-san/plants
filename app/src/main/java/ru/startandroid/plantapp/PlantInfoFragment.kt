@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.all_plant_fragment.edit_text_catalog
 import kotlinx.android.synthetic.main.all_plant_fragment.search_cancel
 import kotlinx.android.synthetic.main.all_plant_fragment.search_icon_button
 import kotlinx.android.synthetic.main.my_plant_fragment.*
+import kotlinx.android.synthetic.main.plant_info_fragment.*
 
 class PlantInfoFragment : Fragment() {
 
@@ -50,6 +51,28 @@ class PlantInfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        var id = arguments?.getLong("id", -1)
+        if (id != null) {
+            if(id != -1L){
+
+                care_button.setOnClickListener {
+                    requireActivity().supportFragmentManager.beginTransaction()
+                        .replace(R.id.container, PlantCareFragment.newInstance(id))
+                        .addToBackStack("3")
+                        .commit()
+                }
+
+                var plant = plantDao.getPlantById(id)
+                plant_info_bg.setImageDrawable(resources.getDrawable(plant.image_large, null))
+                title.text = plant.title
+                size.text = plant.size
+                family.text = plant.family
+                height.text = plant.height
+                moisture.text = plant.moisture.toString() + "%"
+            }
+        }
 
 
     }

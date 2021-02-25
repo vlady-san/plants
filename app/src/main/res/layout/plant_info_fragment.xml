@@ -116,7 +116,7 @@
             android:text="Ухаживать"
             android:background="@color/background"
             android:padding="16dp"
-            android:id="@+id/care"/>
+            android:id="@+id/care_button"/>
 
 
     </LinearLayout>

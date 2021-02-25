@@ -15,5 +15,8 @@ data class Plant(
     val moisture : Double,
     val family : String,
     val size : String,
-    var is_my : Boolean
+    var is_my : Boolean,
+    var watering : Int = 0,
+    var fereliziter : Int = 0,
+    var spraying : Int = 0
 )

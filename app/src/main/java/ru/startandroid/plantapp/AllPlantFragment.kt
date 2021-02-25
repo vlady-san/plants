@@ -101,10 +101,10 @@ class AllPlantFragment : Fragment(), OnChooseCategoryItemClickListener,
     }
 
     override fun getInfoPlant(id: Long) {
-        val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container, PlantInfoFragment())
-        transaction.addToBackStack(null)
-        transaction.commit()
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.container, PlantInfoFragment.newInstance(id))
+            .addToBackStack("1")
+            .commit()
     }
 
 }
