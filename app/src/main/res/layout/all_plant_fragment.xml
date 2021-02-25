@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:layout_width="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:id="@+id/search_bar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ImageButton
+            android:background="#0000"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_search"
+            android:id="@+id/search_icon_button"/>
+
+        <EditText
+            android:layout_centerVertical="true"
+            android:focusableInTouchMode="true"
+            android:id="@+id/edit_text_catalog"
+            android:background="#0000"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/search_icon_button"
+            android:hint="Начните вводить название"
+            android:layout_width="match_parent"
+            android:maxLines="1"
+            android:layout_toLeftOf="@+id/search_cancel"
+            android:layout_height="wrap_content"/>
+        <ImageButton
+            android:visibility="visible"
+            android:layout_marginLeft="16dp"
+            android:layout_alignParentRight="true"
+            android:background="#0000"
+            android:id="@+id/search_cancel"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"/>
+
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:padding="16dp"
+        android:id="@+id/horizontal_recycler_view"
+        app:layout_constraintTop_toBottomOf="@id/search_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/horizontal_recycler_view_item"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_margin="16dp"
+        tools:listitem="@layout/vertical_recycler_view_item"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_recycler_view"
+        android:id="@+id/vertical_recycler_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
